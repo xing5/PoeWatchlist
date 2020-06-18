@@ -1,0 +1,55 @@
+{
+  "name": "__MSG_appName__",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "__MSG_appDescription__",
+  "icons": {
+    "16": "images/icon-16.png",
+    "128": "images/icon-128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "bower_components/jquery/dist/jquery.min.js",
+      "libs/polyfill.min.js",
+      "scripts/background.js"
+    ]
+  },
+  "permissions": [
+    "tabs",
+    "http://*/*",
+    "https://*/*",
+    "cookies",
+    "*://*.google.com/",
+    "debugger",
+    "notifications",
+    "storage",
+    "activeTab",
+    "webRequest"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://www.pathofexile.com/trade/*",
+        "https://www.pathofexile.com/trade/*"
+      ],
+      "js": [
+        "bower_components/jquery/dist/jquery.min.js",
+        "scripts/contentscript.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "browser_action": {
+    "default_icon": {
+      "19": "images/icon-19.png",
+      "38": "images/icon-38.png"
+    },
+    "default_title": "PoeWatchlist",
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    "images/icon-48.png"
+  ]
+}
