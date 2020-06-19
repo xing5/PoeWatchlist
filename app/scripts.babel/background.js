@@ -4,7 +4,7 @@ chrome.runtime.onInstalled.addListener(details => {
   console.log('previousVersion', details.previousVersion);
 });
 
-chrome.browserAction.setBadgeText({text: 'PoeWatchlist'});
+chrome.browserAction.setBadgeText({text: 'PW'});
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
@@ -50,7 +50,7 @@ function updateDB(pwdb, ids) {
                 type: 'basic',
                 iconUrl: 'images/icon-38.png',
                 title: element.item.name,
-                message: element.listing.whisper
+                message: 'The owner ' + element.listing.account.lastCharacterName + ' is online!'
               });
             }
           }

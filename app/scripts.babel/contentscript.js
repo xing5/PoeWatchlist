@@ -27,7 +27,7 @@ var PW = {
 
   renderItem: item => `
   <li data-id="${item.id}"> 
-    <a title="${atob(item.item.extended.text)}" target="_blank">${item.item.name}</a>
+    <a title="${atob(item.item.extended.text)}" target="_blank">${item.item.name || item.item.typeLine}</a>
     ${item.listing.account.online === null ? 
       '<span class="status status-offline">offline</span>' : 
         (item.listing.account.online.status === 'afk' ? 
@@ -101,7 +101,8 @@ var PWPullInterval = setInterval(function() {
       let ids = Object.keys(latestList.items);
       if (ids.length > 0) {
         $('.watchlist-content ul').html(
-          ids.map(id => latestList.items[id]).map(PW.renderItem).join('\n')
+          ids.map(id => latestList.items[id])
+            .filter(item => 'id' in item).map(PW.renderItem).join('\n')
         )
       }
     }
