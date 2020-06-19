@@ -75,7 +75,8 @@ gulp.task('chromeManifest', () => {
         exclude: [
           'scripts/chromereload.js'
         ]
-      }
+      },
+      
   }))
   .pipe($.if('*.css', $.cleanCss({compatibility: '*'})))
   .pipe($.if('*.js', $.sourcemaps.init()))

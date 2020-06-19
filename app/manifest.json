@@ -37,6 +37,9 @@
         "bower_components/jquery/dist/jquery.min.js",
         "scripts/contentscript.js"
       ],
+      "css": [
+        "styles/main.css"
+      ],
       "run_at": "document_idle",
       "all_frames": false
     }
