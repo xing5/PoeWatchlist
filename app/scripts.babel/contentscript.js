@@ -32,7 +32,7 @@ var PW = {
       '<span class="status status-offline">offline</span>' : 
         (item.listing.account.online.status === 'afk' ? 
           '<span class="status status-away">AFK</span>' : '<span class="status status-online">online</span>')}
-    <a target="_blank" class="whisper-btn" message="${item.listing.whisper}">Whisper</a>
+    <a target="_blank" class="whisper-btn" title="${item.listing.account.name}" message="${item.listing.whisper}">Whisper</a>
     <a target="_blank" class="rm-btn">Remove</a>
   </li>
   `,
